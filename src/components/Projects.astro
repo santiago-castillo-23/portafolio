@@ -1,0 +1,186 @@
+---
+import { Image } from "astro:assets";
+
+const PROJECTS = [
+  {
+    title: "Ancianato Tame, Arauca",
+    description:
+      "Este proyecto incluyó la instalación de una cubierta termoacústicas UPVC.",
+    video:
+      "https://res.cloudinary.com/dme4ett0o/video/upload/v1753754471/video-proyecto-tame_gvtmpd.mp4",
+    images: [
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753756255/Imagen1_v1xrdj.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753756255/Imagen2_voy17l.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753756256/Imagen3_qyqkpl.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753756256/Imagen4_qgosrd.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753756256/Imagen5_semu0k.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753756254/Imagen6_ronvj0.jpg",
+    ],
+  },
+  {
+    title: "Coliseo Multifuncional Moniquirá, Boyacá",
+    description:
+      "Este proyecto incluyó el desmonte de la antigua cubierta y la instalación de una cubierta termoacústicas UPVC.",
+    video: "https://res.cloudinary.com/dme4ett0o/video/upload/v1766015809/Coliseo-Moniquira_utqv5m.mp4",
+    videoDisplay: "Horizontal",
+    images: [
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753836797/Imagen1_sxsub4.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753836797/Imagen2_kxghdf.jpg",
+    ],
+  },
+  {
+    title: "Colegio del Departamento del Cesar",
+    description:
+      "Este proyecto incluyó la instalación de una cubierta Skydeck sin traslapo doble bandeja.",
+    video:
+      "https://res.cloudinary.com/dme4ett0o/video/upload/v1766016988/Colegio-Cesar_viqcnj.mp4",
+    images: [
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753838306/Imagen1_icftgw.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753838307/Imagen2_su1c7k.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753838303/Imagen3_aqudow.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753838304/Imagen4_gy6c7f.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753838305/Imagen5_w6fz3n.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753838305/Imagen6_ugtftv.jpg",
+    ],
+  },
+  {
+    title: "Palmira, Valle del Cauca",
+    description:
+      "Este proyecto incluyó la fabricación de la estcutura y a intalación de cuenteros termo.",
+    video:
+      "https://res.cloudinary.com/dme4ett0o/video/upload/v1766016965/Palmira_h4smyh.mp4",
+    images: [
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753840523/Imagen1_n5erg8.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753840522/Imagen2_msmuvf.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753840523/Imagen3_qas406.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753840523/Imagen4_qhrvyz.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753840523/Imagen5_mt2pbz.jpg",
+      "https://res.cloudinary.com/dme4ett0o/image/upload/v1753840523/Imagen6_vx9oev.jpg",
+    ],
+  },
+];
+
+const gridClass = (n: number, isHorizontal: boolean): string => {
+  const height = isHorizontal ? "md:h-[300px]" : "md:h-[550px]";
+  if (n <= 1) return `grid grid-cols-1 grid-rows-1 ${height}`;
+  if (n === 2) return `grid grid-cols-2 grid-rows-1 ${height}`;
+  if (n <= 4) return `grid grid-cols-2 grid-rows-2 ${height}`;
+  return `grid grid-cols-2 grid-rows-3 ${height}`;
+};
+
+const maxSlots = (n: number): number => {
+  if (n <= 1) return 1;
+  if (n === 2) return 2;
+  if (n <= 4) return 4;
+  return 6;
+};
+
+const containerClass = (project) => {
+  if (project.video && project.videoDisplay === "Horizontal") {
+    return "grid grid-cols-1 gap-4 mt-4";
+  }
+  return "grid grid-cols-1 md:grid-cols-2 gap-4 mt-4";
+};
+---
+
+{
+  PROJECTS.map((project) => {
+    const n = project.images.length;
+    return (
+      <div class="my-10">
+        <h3 class="text-2xl font-bold text-black">{project.title}</h3>
+        <p class="text-pretty text-lg mt-2">{project.description}</p>
+        <div class={containerClass(project)}>
+          {project.video ? (
+            project.videoDisplay === "Horizontal" ? (
+              <video
+                class="w-full rounded-xl object-cover md:h-[400px] transition duration-300 ease-in-out hover:scale-[1.04] clickable-media"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={project.video} type="video/mp4" />
+              </video>
+            ) : (
+              <video
+                class="w-full rounded-xl object-cover md:h-[550px] transition duration-300 ease-in-out hover:scale-[1.04] clickable-media"
+                autoplay
+                loop
+                muted
+                playsinline
+              >
+                <source src={project.video} type="video/mp4" />
+              </video>
+            )
+          ) : null}
+
+          <div class={`gap-4 ${gridClass(n, project.videoDisplay === "Horizontal")} overflow-hidden rounded-xl`}>
+            {project.images.slice(0, maxSlots(n)).map((image) => (
+              <img
+                src={image}
+                alt={project.title}
+                class="w-full h-full rounded-lg object-cover transition duration-300 ease-in-out hover:scale-110 clickable-media"
+                loading="lazy"
+                decoding="async"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  })
+}
+
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4">
+  <div class="relative bg-white rounded-lg max-w-5xl max-h-full overflow-auto">
+    <button id="close-modal" class="absolute top-2 right-2 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold shadow-lg z-10">&times;</button>
+    <img id="modal-image" class="hidden w-full h-auto max-h-screen object-contain" />
+    <video id="modal-video" class="hidden w-full h-auto max-h-screen object-contain" controls playsinline webkit-playsinline>
+      <source type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<script client:load>
+function openModal(type, src) {
+  const modal = document.getElementById('modal');
+  const img = document.getElementById('modal-image');
+  const vid = document.getElementById('modal-video');
+  if (type === 'image') {
+    img.src = src;
+    img.classList.remove('hidden');
+    vid.classList.add('hidden');
+  } else {
+    vid.querySelector('source').src = src;
+    vid.load();
+    vid.classList.remove('hidden');
+    img.classList.add('hidden');
+  }
+  modal.classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.add('hidden');
+  const vid = document.getElementById('modal-video');
+  vid.pause();
+  vid.querySelector('source').src = '';
+}
+
+document.getElementById('close-modal').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('modal')) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+document.querySelectorAll('.clickable-media').forEach(el => {
+  el.addEventListener('click', () => {
+    const type = el.tagName === 'IMG' ? 'image' : 'video';
+    const src = type === 'image' ? el.src : el.querySelector('source').src;
+    openModal(type, src);
+  });
+});
+</script>
