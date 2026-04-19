@@ -8,13 +8,13 @@ import Projects from "../components/Projects.astro";
 ---
 
 <Layout>
-  <main>
+  <main class="px-4 sm:px-6 lg:px-8">
     <SectionContainer id="top">
-      <h1 class="text-5xl font-bold text-center text-[#ec1c24]">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[#ec1c24]">
         Instalador de cubiertas
       </h1>
-      <h2 class="text-4xl font-bold text-center mt-2">Santiago Cañon</h2>
-      <p class="text-pretty text-lg mt-5 w-full max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mt-2">Santiago Cañon</h2>
+      <p class="text-pretty text-base sm:text-lg mt-5 w-full max-w-3xl mx-auto">
         Bienvenido a mi portafolio, aquí encontrarás información sobre mis
         proyectos y habilidades. Soy un instalador de cubiertas con experiencia en
 		la instalación de cubiertas de diferentes tipos y materiales. Mi objetivo
@@ -29,23 +29,82 @@ import Projects from "../components/Projects.astro";
         </SocialIcons>
       </nav>
       <div class="my-10 w-full max-w-3xl mx-auto flex justify-center">
-        <img src="/foto-perfil.jpg" alt="Foto de perfil" class="rounded-xl object-cover w-full h-120"/>
+        <img src="/foto-perfil.jpg" alt="Foto de perfil" class="rounded-xl object-cover w-full h-80 sm:h-96 md:h-120"/>
       </div>
     </SectionContainer>
     <SectionContainer id="sobre-mi">
-      <h2 class="text-4xl font-bold text-[#ec1c24]">Sobre mí</h2>
-      <p class="text-pretty text-lg mt-5 w-full max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#ec1c24]">Sobre mí</h2>
+      <p class="text-pretty text-base sm:text-lg mt-5 w-full max-w-3xl mx-auto">
         Soy un instalador de cubiertas con más de 3 años de experiencia en el
         sector. He trabajado en una variedad de proyectos, desde pequeñas
         instalaciones residenciales hasta grandes proyectos comerciales. 
     </SectionContainer>
     <SectionContainer id="proyectos">
-      <h2 class="text-4xl font-bold text-[#ec1c24]">Proyectos</h2>
-      <p class="text-pretty text-lg mt-5 w-full max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#ec1c24]">Proyectos</h2>
+      <p class="text-pretty text-base sm:text-lg mt-5 w-full max-w-3xl mx-auto">
         Aquí encontrarás una selección de mis proyectos más destacados. Cada
         proyecto refleja mi compromiso con la calidad y la atención al detalle.
       </p>
       <Projects />
     </SectionContainer>
+    <SectionContainer id="tipos-tejas">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#ec1c24]">Tipos de Tejas</h2>
+      <p class="text-pretty text-base sm:text-lg mt-5 w-full max-w-3xl mx-auto">
+        Aquí encontrarás información sobre los diferentes tipos de tejas en las que brindo mis servicios de instalación
+      </p>
+      <div class="my-10 w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Teja Standing Seam</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776563589/teja-standing-seam-sin-traslapo-800_isfcko.jpg" alt="Teja Standing Seam" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Teja Skydeck</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776564063/Skydeck_uiryjv.png" alt="Teja Skydeck" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Teja Arquitectónica</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776564333/w_1160_ud5s7a.webp" alt="Teja Arquitectónica" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Teja Termoacústica UPVC</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776564689/image_opfx4w.jpg" alt="Teja Termoacústica UPVC" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Teja Colonial UPVC</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776564832/image_1_einnga.jpg" alt="Teja Colonial UPVC" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Tejas en Policarbonato</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776565049/w_1500_h_1500_fit_cover_bzfyfa.jpg" alt="Teja Traslúcida en Policarbonato" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Teja Termoacústica Ajover Silver Trapezoidal A360</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776565303/Ajover_Trapezoidal_360_2_t5d9cc.png" alt="Teja Termoacústica Ajover Silver Trapezoidal A360" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="w-full max-w-[320px]">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-black my-4">Teja Kingspan</h3>
+          <div class="overflow-hidden rounded-xl aspect-[4/3] bg-gray-100">
+            <img src="https://res.cloudinary.com/dme4ett0o/image/upload/v1776565711/Kingspan-removebg-preview_ajzspo.png" alt="Teja Kingspan" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+      </div>
+    </SectionContainer>
   </main>
+  <footer class="bg-[#ec1c24] py-3 sm:py-4 text-center text-xs sm:text-sm text-white">
+    © 2026 Santiago Castillo
+  </footer>
 </Layout>
